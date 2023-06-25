@@ -220,6 +220,7 @@ CREATE TABLE [MortgageRateTypes](
 ) ON [PRIMARY]
 GO
 
+ALTER TABLE [MortgageRateTypes] ADD  CONSTRAINT [DF_MortgageRateTypes_Name] UNIQUE(Name)
 
 ALTER TABLE [MortgageRateTypes] ADD  CONSTRAINT [DF_MortgageRateTypes_rowguid]  DEFAULT (newid()) FOR [rowguid]
 GO
@@ -241,7 +242,7 @@ CREATE TABLE [MortgageRates](
 	[MortgageRateID] [int] IDENTITY(1,1) NOT NULL,
 	[Date] [DATE],
 	[RateType] [int] NULL,
-	[Rate] [decimal] NOT NULL,
+	[Rate] [float] NOT NULL,
 	[rowguid] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
 	[ModifiedDate] [datetime] NOT NULL,
  CONSTRAINT [PK_MortgageRates_MortgageRate] PRIMARY KEY CLUSTERED
