@@ -180,8 +180,8 @@ GO
 CREATE TABLE [Inflation](
 	[InflationID] [int] IDENTITY(1,1) NOT NULL,
 	[Date] [DATE],
-	[Rate] [decimal] NOT NULL,
-	[AnnualChange] [decimal] NULL,
+	[Rate] [float] NOT NULL,
+	[AnnualChange] [float] NULL,
 	[rowguid] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
 	[ModifiedDate] [datetime] NOT NULL,
  CONSTRAINT [PK_Inflation_InflationID] PRIMARY KEY CLUSTERED
