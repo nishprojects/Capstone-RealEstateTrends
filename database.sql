@@ -236,6 +236,7 @@ CREATE TABLE [HousePrices](
 	[Date] [DATE],
 	[HouseType] [int] NOT NULL,
 	[MortgageRates] [int],
+	[GDP] [int],
 	Inflation [int],
 	[Province] [int] NOT NULL,
 	[BenchMarkPrice] [money] NOT NULL,
@@ -268,10 +269,12 @@ ALTER TABLE [HousePrices]  WITH CHECK ADD  CONSTRAINT [FK_HousePrices_Inflation_
 REFERENCES [Inflation] ([InflationID])
 GO
 
-ALTER TABLE [HousePrices]  WITH CHECK ADD  CONSTRAINT [FK_HousePrices_Inflation_ProvinceID] FOREIGN KEY([Inflation])
-REFERENCES [Inflation] ([InflationID])
-GO
+
 
 ALTER TABLE [HousePrices]  WITH CHECK ADD  CONSTRAINT [FK_HousePrices_MortgageRates_MortgageRateID] FOREIGN KEY([MortgageRates])
 REFERENCES [MortgageRates] ([MortgageRateID])
+GO
+
+ALTER TABLE [HousePrices]  WITH CHECK ADD  CONSTRAINT [FK_HousePrices_CanadaGDP_GdpID] FOREIGN KEY([GDP])
+REFERENCES [CanadaGDP] ([GdpID])
 GO
